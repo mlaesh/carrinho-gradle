@@ -1,0 +1,8 @@
+rootProject.name = 'multi-carrinho-app'
+
+include 'app-controller'
+include 'app-validacao'
+include 'app-repository'
+include 'app-model'
+include 'app'
+

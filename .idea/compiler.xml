@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="E:/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+        </processorPath>
+        <module name="multi-carrinho-app.app-model.test" />
+        <module name="multi-carrinho-app.app-repository.test" />
+        <module name="multi-carrinho-app.app-validacao.main" />
+        <module name="multi-carrinho-app.app.main" />
+        <module name="multi-carrinho-app.app-controller.main" />
+        <module name="multi-carrinho-app.app-model.main" />
+        <module name="multi-carrinho-app.app-validacao.test" />
+        <module name="multi-carrinho-app.app-repository.main" />
+        <module name="multi-carrinho-app.app-controller.test" />
+        <module name="multi-carrinho-app.app.test" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8" />
+  </component>
+</project>
