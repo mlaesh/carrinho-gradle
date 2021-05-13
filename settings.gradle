@@ -5,4 +5,5 @@ include 'app-validacao'
 include 'app-repository'
 include 'app-model'
 include 'app'
+include 'app-repository'
 

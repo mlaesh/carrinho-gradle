@@ -1,7 +1,5 @@
 br/com/app/model/Precos.java
  br.com.app.model.Precos
-br/com/app/model/Produtos.java
- br.com.app.model.Produtos
 br/com/app/model/DadosPagamento.java
  br.com.app.model.DadosPagamento
 br/com/app/model/CarrinhoItem.java
@@ -10,5 +8,5 @@ br/com/app/model/TipoPreco.java
  br.com.app.model.TipoPreco
 br/com/app/model/CarrinhoCompras.java
  br.com.app.model.CarrinhoCompras
-br/com/app/repository/ProdutosRepository.java
- br.com.app.repository.ProdutosRepository
+br/com/app/model/Produtos.java
+ br.com.app.model.Produtos
