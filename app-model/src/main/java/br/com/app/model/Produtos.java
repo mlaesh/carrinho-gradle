@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -14,8 +15,8 @@ import java.util.List;
 
 @Entity
 @ToString(exclude= {"id", "precos"})
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Produtos {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+public class Produtos extends RepresentationModel<Produtos> {
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @EqualsAndHashCode.Include @Getter @Setter private Long id;

@@ -6,15 +6,17 @@ import br.com.app.model.Produtos;
 import br.com.app.model.TipoPreco;
 import br.com.app.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/carrinho")
-//@Scope(value= WebApplicationContext.SCOPE_REQUEST)
+@Scope(value= WebApplicationContext.SCOPE_REQUEST)
 public class CarrinhoController {
 
     @Autowired

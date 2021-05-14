@@ -4,6 +4,7 @@ import br.com.app.controller.dto.ProdutosDto;
 import br.com.app.model.Produtos;
 import br.com.app.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -14,6 +15,9 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @RestController
 @RequestMapping("/produtos")
 public class ProdutosController {
@@ -22,10 +26,17 @@ public class ProdutosController {
     private ProdutosRepository repository;
 
     @GetMapping
-    public List<ProdutosDto> listar(){
-        List<Produtos> produtos = repository.findAll();
-        System.out.println(produtos);
-        return ProdutosDto.converter(produtos);
+    public ResponseEntity<List<Produtos>> listar(){
+        List<Produtos> produtosList = repository.findAll();
+        if(produtosList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else{
+            for(Produtos produto : produtosList){
+                Long id = produto.getId();
+                produto.add(linkTo(methodOn(ProdutosController.class).detalhar(id)).withSelfRel());
+            }
+            return new ResponseEntity<List<Produtos>>(produtosList, HttpStatus.OK);
+        }
     }
 
     @PostMapping
@@ -40,6 +51,7 @@ public class ProdutosController {
     public ResponseEntity<ProdutosDto> detalhar(@PathVariable Long id){
         Optional<Produtos> produtos = repository.findById(id);
         if(produtos.isPresent()){
+            produtos.get().add(linkTo(methodOn(ProdutosController.class).listar()).withRel("Todos os produtos"));
             return ResponseEntity.ok(new ProdutosDto(produtos.get()));
         }
         return ResponseEntity.notFound().build();
